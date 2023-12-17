@@ -1,0 +1,12 @@
+{
+  "extends": "fastify-tsconfig",
+  "compilerOptions": {
+    "outDir": "dist",
+    "sourceMap": true,
+    "moduleResolution": "Node16",
+    "module": "Node16",
+    "target": "ES2022",
+    "esModuleInterop": true
+  },
+  "include": ["src/**/*.ts"]
+}

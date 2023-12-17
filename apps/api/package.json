@@ -1,0 +1,60 @@
+{
+  "type": "module",
+  "name": "caption",
+  "description": "This project was bootstrapped with Fastify-CLI.",
+  "version": "1.0.0",
+  "main": "app.ts",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "npm run build:ts && tsc -p test/tsconfig.json && c8 tap --ts \"test/**/*.test.ts\"",
+    "start": "npx prisma generate && fastify start app.js",
+    "build": "tsc",
+    "build:ts": "tsc",
+    "watch:ts": "tsc -w",
+    "dev": "npm run build:ts && concurrently -k -p \"[{name}]\" -n \"TypeScript,App\" -c \"yellow.bold,cyan.bold\" \"npm:watch:ts\" \"npm:dev:start\"",
+    "dev:start": "fastify start --ignore-watch=.ts$ -w  -P dist/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/autoload": "^5.0.0",
+    "@fastify/cors": "^8.4.1",
+    "@fastify/sensible": "^5.0.0",
+    "@fastify/static": "^6.12.0",
+    "@prisma/client": "5.7.0",
+    "@remotion/renderer": "^4.0.76",
+    "axios": "^1.6.2",
+    "bullmq": "^4.15.2",
+    "cheerio": "1.0.0-rc.12",
+    "fastify": "^4.0.0",
+    "fastify-cli": "^5.9.0",
+    "fastify-plugin": "^4.0.0",
+    "ioredis": "5.3.2",
+    "langchain": "^0.0.198",
+    "prisma": "^5.7.0",
+    "tmp": "^0.2.1"
+  },
+  "devDependencies": {
+    "@types/html-to-text": "^9.0.4",
+    "@types/node": "^20.4.4",
+    "@types/tap": "^15.0.5",
+    "@types/tmp": "^0.2.6",
+    "c8": "^7.13.0",
+    "concurrently": "^8.2.2",
+    "fastify-tsconfig": "^2.0.0",
+    "tap": "^16.1.0",
+    "ts-node": "^10.4.0",
+    "typescript": "^5.2.2"
+  },
+  "tap": {
+    "node-arg": [
+      "--no-warnings",
+      "--experimental-loader",
+      "ts-node/esm"
+    ],
+    "coverage": false
+  }
+}
