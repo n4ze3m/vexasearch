@@ -7,5 +7,3 @@ services:
       - "3727:3000"
     env_file:
       - .env
-    volumes:
-      - .out:/app/out
