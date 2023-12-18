@@ -15,7 +15,7 @@ type Props = {
   ai: string;
   query: string;
   image: string;
-  google: {
+  google?: {
     title?: string;
     link?: string;
     displayLink?: string;
@@ -65,7 +65,7 @@ export const Results = ({ ai, image, google, query }: Props) => {
             {`Results for "${query}"`}
           </Text>
 
-          {google.length === 0 && (
+          {google?.length === 0 && (
             <Card>
               <Group justify="center">
                 <IconError404 size={50} />
@@ -77,7 +77,7 @@ export const Results = ({ ai, image, google, query }: Props) => {
             </Card>
           )}
 
-          {google.map((item, index) => (
+          {google?.map((item, index) => (
             <Card
               key={index}
               mt="md"

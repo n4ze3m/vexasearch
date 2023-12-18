@@ -36,7 +36,7 @@ export const guessHandler = async (
       ai: result,
       query,
       image: image_base64,
-      google: search,
+      google: search || [],
     };
   } catch (error) {
     console.error(error);
