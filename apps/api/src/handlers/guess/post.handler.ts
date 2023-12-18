@@ -5,7 +5,7 @@ import { searchResult } from "../../utils/google.js";
 interface GuessRequestBody {
   Body: {
     image_base64: string;
-  }; 
+  };
 }
 
 export const guessHandler = async (
@@ -20,6 +20,17 @@ export const guessHandler = async (
     const query = await generateSearchQuery(result);
 
     const search = await searchResult(query);
+
+    // for debugging
+    await request.server.prisma.search.create({
+      data: {
+        logs: {
+          query,
+          result,
+          search
+        },
+      },
+    });
 
     return {
       ai: result,

@@ -5,7 +5,7 @@ import { ChatGoogleGenerativeAI } from "@langchain/google-genai";
 import { StringOutputParser } from "langchain/schema/output_parser";
 import { Fireworks } from "langchain/llms/fireworks";
 
-const PROMPT = `You are a helpful assistant who give accurate information of image that user send to you. You must be able to answer what is in the image . Do not make up informatiom. If you do not know what is in the image, you can say "I'm not sure what is in the image". You need to explain the image in detail if you know name of the image then you can say "This is a {name of the image}". Be sure to answer the question in a way that is helpful to the user. You must give name of the image if you know.`
+const PROMPT = `You are a helpful assistant who give accurate information of image that user send to you. You must be able to answer what is in the image . Do not make up informatiom. If you do not know what is in the image, you can say "I'm not sure what is in the image". You need to explain the image in detail if you know name of the image then you can say "This is a {name of the image}". Be sure to answer the question in a way that is helpful to the user. You must give name of the image if you know.`;
 const GOOGLE_SERACH_PROMPT = `You are a google search query generator from a given text. You must need to generate a google search query from givien context. Just return the query Donot add anything extra
 -----
 {context}
@@ -31,62 +31,72 @@ const mistralModel = new Fireworks({
 const outputParser = new StringOutputParser();
 
 export const generateGuess = async (image_base64: string) => {
-  const geminiHuman = new HumanMessage({
-    content: [
-      {
-        text: PROMPT,
-        type: "text",
-      },
-      {
-        image_url: image_base64,
-        type: "image_url",
-      },
-    ],
-  });
-
-  let imageBase64WithHeader = `data:image/jpeg;base64,${
-    image_base64.split(",")[1]
-  }`;
-
-  const llavaHuman = new HumanMessage({
-    content: [
-      {
-        text: PROMPT,
-        type: "text",
-      },
-      {
-        image_url: {
-          url: imageBase64WithHeader,
+  try {
+    const geminiHuman = new HumanMessage({
+      content: [
+        {
+          text: PROMPT,
+          type: "text",
         },
-        type: "image_url",
-      },
-    ],
-  });
+        {
+          image_url: image_base64,
+          type: "image_url",
+        },
+      ],
+    });
 
-  const geminiPrompt = ChatPromptTemplate.fromMessages([geminiHuman]);
+    let imageBase64WithHeader = `data:image/jpeg;base64,${
+      image_base64.split(",")[1]
+    }`;
 
-  const llavaPrompt = ChatPromptTemplate.fromMessages([llavaHuman]);
+    const llavaHuman = new HumanMessage({
+      content: [
+        {
+          text: PROMPT,
+          type: "text",
+        },
+        {
+          image_url: {
+            url: imageBase64WithHeader,
+          },
+          type: "image_url",
+        },
+      ],
+    });
 
-  const geminiChain = geminiPrompt.pipe(geminiVisionModel).pipe(outputParser);
+    const geminiPrompt = ChatPromptTemplate.fromMessages([geminiHuman]);
 
-  // llava will be a fallback in case gemini fails
-  const llavaChain = llavaPrompt.pipe(llavaVisionModel).pipe(outputParser);
+    const llavaPrompt = ChatPromptTemplate.fromMessages([llavaHuman]);
 
-  const model = geminiChain.withFallbacks({
-    fallbacks: [llavaChain],
-  });
+    const geminiChain = geminiPrompt.pipe(geminiVisionModel).pipe(outputParser);
 
-  const result = await model.invoke({});
+    // llava will be a fallback in case gemini fails
+    const llavaChain = llavaPrompt.pipe(llavaVisionModel).pipe(outputParser);
 
-  return result;
+    const model = geminiChain.withFallbacks({
+      fallbacks: [llavaChain],
+    });
+
+    const result = await model.invoke({});
+
+    return result;
+  } catch (error) {
+    console.log(error);
+    return "";
+  }
 };
 
 export const generateSearchQuery = async (context: string) => {
-  const prompt = PromptTemplate.fromTemplate(GOOGLE_SERACH_PROMPT);
+  try {
+    const prompt = PromptTemplate.fromTemplate(GOOGLE_SERACH_PROMPT);
 
-  const model = prompt.pipe(mistralModel).pipe(outputParser);
+    const model = prompt.pipe(mistralModel).pipe(outputParser);
 
-  const result = await model.invoke({ context });
+    const result = await model.invoke({ context });
 
-  return result;
+    return result;
+  } catch (error) {
+    console.log(error);
+    return "";
+  }
 };
