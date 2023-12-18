@@ -1,0 +1,10 @@
+.display {
+  margin-top: var(--mantine-spacing-lg);
+  margin-bottom: var(--mantine-spacing-lg);
+}
+
+.tab {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}

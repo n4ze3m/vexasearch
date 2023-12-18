@@ -1,0 +1,11 @@
+.header {
+  height: rem(60px);
+  padding-left: var(--mantine-spacing-md);
+  padding-top: var(--mantine-spacing-md);
+}
+
+.main {
+  padding: var(--mantine-spacing-md);
+  margin-top: var(--mantine-spacing-md);
+}
+
