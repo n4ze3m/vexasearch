@@ -1,14 +1,11 @@
 version: '3.9'
 
 services:
-  app:
+  vexa:
     build: .
     ports:
-      - "3000:3000"
+      - "3727:3000"
     env_file:
       - .env
-    depends_on:
-      - cache
-      - whisper
     volumes:
       - .out:/app/out
