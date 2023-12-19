@@ -34,8 +34,8 @@ function App() {
       </AppShell.Main>
 
       <AppShell.Section>
-        <Center>
-          <Text mb="md" size="xs" c="dimmed">
+        <Center m="md">
+          <Text mb="md" ta="center" size="xs" c="dimmed">
             {
               "Generated content maybe inaccurate please always verify the data."
             }

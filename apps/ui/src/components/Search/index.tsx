@@ -37,6 +37,7 @@ export const Search = () => {
   const { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>({
     offset: 60,
   });
+  const [screenshotImage, setScreenshotImage] = React.useState<string | null>();
   const [data, setData] = React.useState<{
     ai: string;
     query: string;
@@ -87,6 +88,7 @@ export const Search = () => {
   const generateCameraRequest = async () => {
     const screenshot = getScreenshot();
     if (screenshot) {
+      setScreenshotImage(screenshot);
       const data = {
         image_base64: screenshot,
       };
@@ -166,18 +168,26 @@ export const Search = () => {
             {permission === "granted" && (
               <div className={classes.camera}>
                 <div className={classes.video}>
-                  <Webcam
-                    onUserMedia={onUserMedia}
-                    width="100%"
-                    audio={false}
-                    onUserMediaError={onUserMediaError}
-                    ref={webcamRef}
-                    screenshotFormat="image/jpeg"
-                    mirrored={false}
-                    videoConstraints={{
-                      facingMode,
-                    }}
-                  />
+                  {isPendingScreenshot && screenshotImage ? (
+                    <img
+                      src={screenshotImage}
+                      alt="screenshot"
+                      style={{ width: "100%" }}
+                    />
+                  ) : (
+                    <Webcam
+                      onUserMedia={onUserMedia}
+                      width="100%"
+                      audio={false}
+                      onUserMediaError={onUserMediaError}
+                      ref={webcamRef}
+                      screenshotFormat="image/jpeg"
+                      mirrored={false}
+                      videoConstraints={{
+                        facingMode,
+                      }}
+                    />
+                  )}
                   <div className={classes.newcamera}>
                     <ActionIcon
                       my="md"
@@ -198,6 +208,7 @@ export const Search = () => {
                   <ActionIcon
                     onClick={() => {
                       setData(undefined);
+                      setScreenshotImage(null);
                       setType("file");
                     }}
                     size={"xl"}
@@ -233,6 +244,7 @@ export const Search = () => {
                   color="teal"
                   onClick={() => {
                     setData(undefined);
+                    setScreenshotImage(null);
                     setType("file");
                   }}
                 >

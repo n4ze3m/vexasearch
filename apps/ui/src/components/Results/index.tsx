@@ -111,7 +111,7 @@ export const Results = ({ ai, image, google, query }: Props) => {
           target="_blank"
           rel="noopener noreferrer"
           color="blue"
-          variant="outline"
+          variant="light"
           leftSection={<IconCoffee /> }
         >
           Buy me a coffee
