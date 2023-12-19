@@ -1,7 +1,7 @@
 {
-  "name": "post",
+  "name": "vexasearch",
   "version": "0.0.1",
-  "description": "Generate AI social media posts from a single image",
+  "description": "Search engine using image",
   "scripts": {
     "ui:dev": "pnpm run --filter ui dev",
     "api:dev": "pnpm run --filter api dev",
