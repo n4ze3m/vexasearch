@@ -9,7 +9,12 @@ import {
   rem,
 } from "@mantine/core";
 import classes from "./Result.module.css";
-import { IconBrain, IconBrandGoogle, IconCoffee, IconError404 } from "@tabler/icons-react";
+import {
+  IconBrain,
+  IconBrandGoogle,
+  IconCoffee,
+  IconError404,
+} from "@tabler/icons-react";
 
 type Props = {
   ai: string;
@@ -41,7 +46,7 @@ export const Results = ({ ai, image, google, query }: Props) => {
           </Tabs.Tab>
         </Tabs.List>
 
-        <Tabs.Panel value="ai">
+        <Tabs.Panel  value="ai">
           <Card mt="md" className={classes.card} withBorder radius="md" p={0}>
             <div className={classes.body}>
               <Image
@@ -60,8 +65,17 @@ export const Results = ({ ai, image, google, query }: Props) => {
           </Card>
         </Tabs.Panel>
 
-        <Tabs.Panel value="google">
-          <Text m="md" fz="lg" fw="bold" c="dimmed">
+        <Tabs.Panel pt="md" value="google">
+          <Text
+            my="md"
+            fz="lg"
+            fw="bold"
+            c="blue"
+            component="a"
+            href={`https://www.google.com/search?q=${query}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {`Results for "${query}"`}
           </Text>
 
@@ -112,7 +126,7 @@ export const Results = ({ ai, image, google, query }: Props) => {
           rel="noopener noreferrer"
           color="blue"
           variant="light"
-          leftSection={<IconCoffee /> }
+          leftSection={<IconCoffee />}
         >
           Buy me a coffee
         </Button>
