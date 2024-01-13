@@ -19,7 +19,7 @@ const geminiVisionModel = new ChatGoogleGenerativeAI({
 });
 
 const llavaVisionModel = new ChatFireworks({
-  modelName: "accounts/fireworks/models/llava-v15-13b",
+  modelName: "accounts/fireworks/models/llava-v15-13b-fireworks",
   streaming: false,
 });
 
