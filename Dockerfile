@@ -1,33 +1,26 @@
+ARG NODE_VERSION=18.17.1
+FROM node:18.17.1-slim as base
 
-FROM node:21-slim as server
 WORKDIR /app
 
-RUN apt update
-RUN npm --no-update-notifier --no-fund --global install pnpm
+ENV NODE_ENV="production"
 
-COPY . .
+FROM base as build
 
-RUN pnpm install
+RUN apt-get update -qq && \
+    apt-get install --no-install-recommends -y build-essential node-gyp pkg-config python-is-python3
 
-RUN pnpm build
+COPY --link package-lock.json package.json ./
+RUN npm ci --include=dev
 
-FROM node:21-slim
-WORKDIR /app
+COPY --link . .
 
-RUN apt update && apt -y install --no-install-recommends ca-certificates git git-lfs openssh-client curl jq cmake sqlite3 openssl psmisc python3 
-RUN npm install -g node-gyp
-RUN apt-get clean autoclean && apt-get autoremove --yes && rm -rf /var/lib/{apt,dpkg,cache,log}/
-RUN apt-get install -y chromium
-# Copy API
-COPY --from=server /app/apps/api/package.json .
-COPY --from=server /app/apps/api/dist/ .
-COPY --from=server /app/apps/api/prisma/ .
+RUN npm run build
 
-# Copy UI
-COPY --from=server /app/apps/ui/dist/ ./public
+RUN npm prune --omit=dev
 
-RUN yarn install 
+FROM base
 
-ENV NODE_ENV=production
-
-CMD ["yarn", "start"]
+COPY --from=build /app /app
+EXPOSE 3000
+CMD [ "npm", "run", "start" ]
