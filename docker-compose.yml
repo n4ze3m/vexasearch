@@ -1,9 +1,0 @@
-version: '3.9'
-
-services:
-  vexa:
-    build: .
-    ports:
-      - "3727:3000"
-    env_file:
-      - .env

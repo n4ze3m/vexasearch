@@ -1,34 +1,38 @@
-# VexaSearch
+# Welcome to Remix!
 
-A simple image search engine like Google Image Search. This project uses Gemini Pro Vision API and LlaVa AI model for image recognition. The search engine is built using Fastify and React.
+- [Remix Docs](https://remix.run/docs)
 
+## Development
 
-## Installation
+From your terminal:
 
-- Clone the repository and install the dependencies.
-
-```bash
-git clone https://github.com/n4ze3m/vexasearch.git
+```sh
+npm run dev
 ```
 
-```bash
-cd vexasearch
+This starts your app in development mode, rebuilding assets on file changes.
+
+## Deployment
+
+First, build your app for production:
+
+```sh
+npm run build
 ```
 
-- Add the required environment variables.
+Then run the app in production mode:
 
-```bash
-cp .env.example .env
+```sh
+npm start
 ```
 
-- Run the server.
+Now you'll need to pick a host to deploy it to.
 
-```bash
-docker compose up -d
-```
+### DIY
 
-that's it, you can now access the server at `http://localhost:3727`.
+If you're familiar with deploying node applications, the built-in Remix app server is production-ready.
 
-## License
+Make sure to deploy the output of `remix build`
 
-MIT
+- `build/`
+- `public/build/`

@@ -1,4 +1,8 @@
-.env
 node_modules
-*/**/node_modules
-*/**/.env
+
+/.cache
+/build
+/public/build
+.env
+!public/images/.keep
+public/images
