@@ -1,5 +1,4 @@
 import { OpenAI } from "openai";
-import { search_internet } from "./search-internet";
 import { FunctionCall, functionCall } from "./function-call";
 
 export const fireworks = new OpenAI({

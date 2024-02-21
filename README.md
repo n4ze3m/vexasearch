@@ -1,38 +1,19 @@
-# Welcome to Remix!
+# VexaSearch
 
-- [Remix Docs](https://remix.run/docs)
+VexaSearch is a simple AI powered search application determine what do using fireworks function call. 
 
-## Development
+Currently, the application is able to determine the following:
 
-From your terminal:
 
-```sh
-npm run dev
-```
+- Generate image
+- Search internet
+- Get information about a specific url
 
-This starts your app in development mode, rebuilding assets on file changes.
 
-## Deployment
+## Models currently used are:
 
-First, build your app for production:
 
-```sh
-npm run build
-```
-
-Then run the app in production mode:
-
-```sh
-npm start
-```
-
-Now you'll need to pick a host to deploy it to.
-
-### DIY
-
-If you're familiar with deploying node applications, the built-in Remix app server is production-ready.
-
-Make sure to deploy the output of `remix build`
-
-- `build/`
-- `public/build/`
+- firefunction-v1 (for function call)
+- Mixtral for text generation
+- stable-diffusion-xl-1024-v1-0 (for image generation)
+- nomic-ai/nomic-embed-text-v1.5 (for rag)
