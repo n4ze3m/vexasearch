@@ -34,7 +34,7 @@ export const generateImage = async ({ prompt }: { prompt: string }) => {
 
   const path = `/images/${crypto.randomUUID()}.png`;
 
-  await fs.writeFile(`./public/${path}`, buffer);
+  await fs.writeFile(`./public${path}`, buffer);
 
   return {
     response: `Prompt: ${prompt}\n\n
