@@ -1,19 +1,16 @@
 # VexaSearch
 
-VexaSearch is a simple AI powered search application determine what do using fireworks function call. 
+VexaSearch is a simple AI-powered search application designed to determine the actions to perform based on a function call.
 
-Currently, the application is able to determine the following:
+Currently, the application is able to perform the following tasks:
 
+- Generate images
+- Search the internet
+- Retrieve information about a specific URL
 
-- Generate image
-- Search internet
-- Get information about a specific url
+## Models currently used:
 
-
-## Models currently used are:
-
-
-- firefunction-v1 (for function call)
+- firefunction-v1 (for function calls)
 - Mixtral for text generation
 - stable-diffusion-xl-1024-v1-0 (for image generation)
-- nomic-ai/nomic-embed-text-v1.5 (for rag)
+- nomic-ai/nomic-embed-text-v1.5 (for RAG)
