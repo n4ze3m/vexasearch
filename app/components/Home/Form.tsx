@@ -6,9 +6,9 @@ export const HomeForm = () => {
 
   return (
     <Form method="post" className="w-full  max-w-2xl">
-      <div className="w-full  border flex flex-col dark:border-gray-600 rounded-xl p-2">
+      <div className="w-full  border flex flex-col dark:border-gray-600 rounded-xl p-2 dark:bg-[#242424]">
         <input
-          className="px-2 py-2 w-full resize-none bg-transparent focus-within:outline-none sm:text-sm focus:ring-0 focus-visible:ring-0 ring-0 dark:ring-0 border-0 dark:text-gray-100"
+          className="px-2 py-2 w-full resize-none bg-transparent focus-within:outline-none  focus:ring-0 focus-visible:ring-0 ring-0 dark:ring-0 border-0 dark:text-gray-100"
           required
           name="query"
           style={{ minHeight: "60px" }}
@@ -18,7 +18,7 @@ export const HomeForm = () => {
           onChange={(e) => setQuery(e.target.value)}
         />
         <div className="flex mt-4 justify-end gap-3">
-          <button className="inline-flex items-center rounded-full border border-transparent bg-black px-2 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 dark:focus:ring-gray-500 dark:focus:ring-offset-gray-100 disabled:opacity-50 ">
+          <button className="inline-flex items-center rounded-full border border-transparent bg-black px-2 py-2 font-medium leading-4 text-white shadow-sm hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 dark:focus:ring-gray-500 dark:focus:ring-offset-gray-100 disabled:opacity-50 ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"

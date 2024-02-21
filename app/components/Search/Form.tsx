@@ -6,7 +6,7 @@ export const SearchForm = ({ q }: { q: string }) => {
 
   return (
     <Form method="post" className="w-full  max-w-2xl">
-      <div className="w-full  border flex flex-row justify-between items-center dark:border-gray-600 rounded-full p-2">
+      <div className="w-full dark:bg-[#242424]  border flex flex-row justify-between items-center dark:border-gray-600 rounded-full p-2">
         <input
           className="px-2 py-2 w-full resize-none bg-transparent focus-within:outline-none sm:text-sm focus:ring-0 focus-visible:ring-0 ring-0 dark:ring-0 border-0 dark:text-gray-100"
           required

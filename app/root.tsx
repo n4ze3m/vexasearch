@@ -41,7 +41,7 @@ export default function App() {
       </head>
       <QueryClientProvider client={queryClient}>
         <Header />
-        <body >
+        <body className="bg-white dark:bg-[#262626]">
           <Outlet />
           <ScrollRestoration />
           <Scripts />

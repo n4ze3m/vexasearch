@@ -1,0 +1,11 @@
+version: '3.9'
+services:
+  vexa:
+    container_name: vexa
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    env_file:
+      - .env

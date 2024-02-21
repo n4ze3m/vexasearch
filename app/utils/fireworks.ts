@@ -53,6 +53,27 @@ export const generate = async (query: string) => {
           },
         },
       },
+      {
+        type: "function",
+        function: {
+          name: "get_information_from_url",
+          description: "Get information from a url given by the user",
+          parameters: {
+            type: "object",
+            properties: {
+              url: {
+                type: "string",
+                description: "The URL of the website to get information",
+              },
+              query: {
+                type: "string",
+                description: "A question to ask the website",
+              },
+            },
+            required: ["url", "query"],
+          },
+        },
+      }
     ],
   });
 
