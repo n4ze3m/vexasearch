@@ -24,7 +24,7 @@ Currently, the application is able to perform the following tasks:
 - Bing Search API key
 
 
-## Supbase
+## Supabase
 
 
 1. Create a new project on [Supabase](https://supabase.com/)
