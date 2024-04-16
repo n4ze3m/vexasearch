@@ -53,6 +53,7 @@ const outputParser = new StringOutputParser();
 const mistralModel = new Fireworks({
   modelName: "accounts/fireworks/models/mixtral-8x7b-instruct",
   streaming: false,
+  maxTokens: 4096,
 });
 
 const defaultResponse = async (query: string) => {

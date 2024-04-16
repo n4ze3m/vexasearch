@@ -91,7 +91,7 @@ export default function Index() {
   });
 
   return (
-    <div className="flex p-6 flex-col items-center justify-center  bg-white dark:bg-[#262626] dark:text-white w-full">
+    <div className="flex p-6 flex-col items-center justify-center h-screen  bg-[#0C0C0C] text-white w-full">
       <div className="max-w-2xl w-full  mb-4 h-screen max-h-screen">
         <SearchForm q={query} />
         {status === "pending" ? <SkeletonLoading /> : null}

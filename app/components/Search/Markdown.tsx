@@ -1,5 +1,4 @@
 import remarkGfm from "remark-gfm";
-import rehypeMathjax from "rehype-mathjax";
 import remarkMath from "remark-math";
 import ReactMarkdown from "react-markdown";
 import "property-information";
@@ -12,7 +11,6 @@ export default function Markdown({ message }: { message: string }) {
       <ReactMarkdown
         className="prose break-words dark:prose-invert  prose-p:leading-relaxed prose-pre:p-0 dark:prose-dark"
         remarkPlugins={[remarkGfm, remarkMath]}
-        rehypePlugins={[rehypeMathjax]}
         components={{
          
           a({ node, ...props }) {

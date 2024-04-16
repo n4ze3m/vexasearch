@@ -34,9 +34,9 @@ export async function action({ request }: ActionFunctionArgs) {
 
 export default function Index() {
   return (
-    <div className="flex p-6 flex-col items-center justify-center h-screen  bg-white dark:bg-[#262626] dark:text-white w-full">
+    <div className="flex p-6 flex-col items-center justify-center h-screen  bg-[#0C0C0C] text-white w-full">
       <div className="mb-6">
-        <h1 className="text-2xl  text-center dark:text-white text-slate-900">
+        <h1 className="text-2xl text-center text-white">
           What you want to do today?
         </h1>
       </div>

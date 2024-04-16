@@ -20,6 +20,7 @@ const embeddingModel = new OpenAIEmbeddings({
 const mistralModel = new Fireworks({
   modelName: "accounts/fireworks/models/mixtral-8x7b-instruct",
   streaming: false,
+  maxTokens: 4096,
 });
 
 export const get_information_from_url = async ({

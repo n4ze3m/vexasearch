@@ -5,13 +5,15 @@ export const HomeForm = () => {
   const [query, setQuery] = React.useState("");
 
   return (
-    <Form method="post" className="w-full  max-w-2xl">
-      <div className="w-full  border flex flex-col dark:border-gray-600 rounded-xl p-2 dark:bg-[#242424]">
+    <Form method="post" className="w-full  max-w-3xl">
+      <div className="bg-gradient-to-r from-pink-500 to-yellow-500 rounded-xl    p-[3px]">
+
+      <div className="w-full   flex flex-col  rounded-xl p-2 bg-[#242424]">
         <input
           className="px-2 py-2 w-full resize-none bg-transparent focus-within:outline-none  focus:ring-0 focus-visible:ring-0 ring-0 dark:ring-0 border-0 dark:text-gray-100"
           required
           name="query"
-          style={{ minHeight: "60px" }}
+          style={{ minHeight: "40px" }}
           tabIndex={0}
           placeholder="Type your query here..."
           value={query}
@@ -36,6 +38,7 @@ export const HomeForm = () => {
               <path d="M17 19h4" />
             </svg>
           </button>
+        </div>
         </div>
       </div>
     </Form>

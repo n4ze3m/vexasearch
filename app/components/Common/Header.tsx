@@ -2,7 +2,7 @@ import { Link } from "@remix-run/react";
 
 export const Header = () => {
   return (
-    <header className="flex border-b w-full bg-white dark:bg-[#262626] p-3 justify-between dark:text-white text-slate-900 dark:border-gray-600">
+    <header className="flex border-b w-full bg-[#0C0C0C] p-3 justify-between text-white border-gray-600">
       <Link
         to="/"
         className="focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-700 flex items-center dark:text-white"

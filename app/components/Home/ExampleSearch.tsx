@@ -12,7 +12,7 @@ export const HomeExampleSearchCard = ({
     <button
       type="submit"
       onClick={onClick}
-      className="border truncate  dark:border-gray-700 text-slate-900 dark:text-slate-50  md:hover:text-slate-700 md:dark:hover:text-slate-200   text-center items-center rounded-full cursor-point active:scale-95 origin-center whitespace-nowrap inline-flex text-xs px-3 font-medium h-6"
+      className=" truncate  bg-[#222831] text-slate-50  md:hover:text-slate-700 md:dark:hover:text-slate-200   text-center items-center rounded-md cursor-point active:scale-95 origin-center whitespace-nowrap inline-flex text-xs px-3 font-medium h-6"
     >
       {name}
     </button>
@@ -21,8 +21,8 @@ export const HomeExampleSearchCard = ({
 
 export const HomeExampleSearch = () => {
   const query = [
-    "Generate Image of Astronaut Riding a Horse",
     "What available models are mentioned on this site: https://readme.fireworks.ai/docs/querying-embeddings-models?",
+    "Generate Image of Astronaut Riding a Horse",
     "When is Juventus' next game?",
     "How many kilometers from Washingto D.C. to Miami Beach?",
   ];
